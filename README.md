@@ -12,3 +12,11 @@ This project uses a user-level `systemd` service to automatically launch the Net
 1. Enable Netdata service:
    ```bash
    sudo systemctl enable --now netdata
+
+2. mkdir -p ~/.config/systemd/user
+cp firefox-netdata.service ~/.config/systemd/user/
+
+3. Enable and start the service:
+systemctl --user daemon-reload
+systemctl --user enable firefox-netdata.service
+systemctl --user start firefox-netdata.service
